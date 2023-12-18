@@ -40,7 +40,6 @@ eNd
                             stack.Pop();
                         }
                     }
-
                 }
                 command = Console.ReadLine().ToLower();
             }
