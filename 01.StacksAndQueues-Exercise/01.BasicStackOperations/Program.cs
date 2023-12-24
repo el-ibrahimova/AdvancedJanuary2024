@@ -24,7 +24,7 @@
          // }
 
          
-            while (stack.Count > 0 && valuesToPop > 0)
+            while (stack.Any() && valuesToPop > 0)   // stack.Any() == stack.Count>0
             {
                 stack.Pop();
                 valuesToPop--;
