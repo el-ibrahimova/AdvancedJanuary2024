@@ -60,8 +60,6 @@
            //     secondarySum += matrix[size - row -1, row];
            // }
 
-
-
             Console.WriteLine(Math.Abs(primarySum - secondarySum));
         }
     }
