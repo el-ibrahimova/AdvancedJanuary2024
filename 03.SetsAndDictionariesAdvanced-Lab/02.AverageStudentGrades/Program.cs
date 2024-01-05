@@ -26,7 +26,7 @@ namespace _02.AverageStudentGrades
                 students[name].Add(grade);
             }
 
-            foreach (var student in students)
+           foreach (var student in students)
             {
                 Console.Write($"{student.Key} -> ");
 
@@ -37,6 +37,13 @@ namespace _02.AverageStudentGrades
 
                 Console.WriteLine($"(avg: {student.Value.Average():f2})");
             }
+
+            // друг начин на отпечатване
+
+           // foreach (var student in students)
+           //  {
+           //     Console.Write($"{student.Key} -> {string.Join(" ", student.Value.Select(grade => $"{grade:F2}"))} (avg: {student.Value.Average():F2})");
+           //  }
         }
     }
 }
