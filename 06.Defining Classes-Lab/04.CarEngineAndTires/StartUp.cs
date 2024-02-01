@@ -17,6 +17,8 @@ namespace CarManufacturer
             var engine = new Engine(560, 6300);
 
             var car = new Car("Lamborghini", "Urus", 2010, 250, 9, engine, tires);
+            Console.WriteLine(car.WhoAmI());
+
         }
     }
 }
