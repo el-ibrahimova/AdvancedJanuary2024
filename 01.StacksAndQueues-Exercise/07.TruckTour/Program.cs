@@ -46,7 +46,7 @@
                     }
                 }
 
-                if (totalPetrol >= 0)
+                if (totalPetrol > 0)
                 {
                     break;
                 }
