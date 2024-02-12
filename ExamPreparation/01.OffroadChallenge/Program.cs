@@ -16,7 +16,7 @@ namespace _01.OffroadChallenge
             Stack<int> fuelQuantity = new Stack<int>(initialFuel);
             Queue<int> addConsumpt = new Queue<int>(addConsumptIndex);
             Queue<int> neededFuel = new Queue<int>(amountOfFuelNeeded);
-            
+
             List<string> reachedAltitudes = new List<string>();
 
             int altitudeCounter = 0;
@@ -55,7 +55,7 @@ namespace _01.OffroadChallenge
                 Console.WriteLine($"John failed to reach the top.");
                 Console.WriteLine($"Reached altitudes: {string.Join(", ", reachedAltitudes)}");
             }
-            else if (reachedAltitudes.Count == 0 )
+            else if (reachedAltitudes.Count == 0)
             {
                 Console.WriteLine("John failed to reach the top.");
                 Console.WriteLine("John didn't reach any altitude.");
