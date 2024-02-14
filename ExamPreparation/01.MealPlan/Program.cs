@@ -1,4 +1,8 @@
-﻿namespace _01.MealPlan
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace _01.MealPlan
 {
     internal class Program
     {
@@ -70,7 +74,7 @@
             else
             {
                 Console.WriteLine($"John ate enough, he had {numberOfMeals - mealCalories.Count} meals.");
-                Console.WriteLine($"Meals left: {string.Join(", ", mealCalories)}");
+                Console.WriteLine($"Meals left: {string.Join(", ", mealCalories)}.");
             }
         }
     }
