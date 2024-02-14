@@ -1,30 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Basketball
 {
     public class Team
     {
+        private List<Player> players;
+
         public Team(string name, int openPositions, char group)
         {
             Name = name;
             OpenPositions = openPositions;
             Group = group;
-            Players = new List<Player>();
+            players = new List<Player>();
 
         }
         public string Name { get; set; }
         public int OpenPositions { get; set; }
         public char Group { get; set; }
+        public IReadOnlyCollection<Player> Players => players.AsReadOnly();
 
-        public List<Player> Players { get; set; }
 
-        public int Count => Players.Count;
+
+        public int Count => players.Count;
 
         public string AddPlayer(Player player)
         {
-            if (player.Name is null || player.Position is null)
+            if (string.IsNullOrEmpty(player.Name) || string.IsNullOrEmpty(player.Position))
             {
                 return "Invalid player's information.";
             }
@@ -40,65 +44,63 @@ namespace Basketball
             }
 
             OpenPositions--;
-            Players.Add(player);
+            players.Add(player);
             return $"Successfully added {player.Name} to the team. Remaining open positions: {OpenPositions}.";
         }
 
         public bool RemovePlayer(string name)
         {
-            Player toRemove = Players.FirstOrDefault(p => p.Name == name);
+            Player toRemove = players.Find(p => p.Name == name);
 
             if (toRemove != null)
             {
-                Players.Remove(toRemove);
+                players.Remove(toRemove);
                 OpenPositions++;
-
+                return true;
             }
-                return false;
+            return false;
         }
 
         public int RemovePlayerByPosition(string position)
         {
-            var toRemoveInPosition = Players.FindAll(p => p.Position== position).ToList();
+            List<Player> playersToRemove = players.FindAll(p => p.Position == position);
+            int count = playersToRemove.Count;
 
-            if (toRemoveInPosition.Count > 0)
-            {
-                Players.RemoveAll(p => p.Position==position);
-                return toRemoveInPosition.Count;
-                OpenPositions -= toRemoveInPosition.Count;
-              
-            }
-            return 0;
+            players.RemoveAll(p => p.Position == position);
+            OpenPositions += count;
+
+            return count;
         }
 
         public Player RetirePlayer(string name)
         {
-            Player retired = Players.FirstOrDefault(p => p.Name == name);
+            Player retired = players.Find(p => p.Name == name);
 
             if (retired != null)
             {
-                retired.Retired=true;
-                return retired;
+                retired.Retired = true;
             }
 
-            return default;
+            return retired;
         }
 
-        public List<Player> AwardPlayers(int games)
+        public List<Player> AwardPlayers(int games) => players.FindAll(p => p.Games >= games);
+
+
+
+        public string Report()
         {
-            var awarded = Players.Where(p => p.Games >= games);
-            return awarded.ToList();
+            StringBuilder reportBuilder = new StringBuilder();
+            reportBuilder.AppendLine($"Active players competing for Team {Name} from Group {Group}:");
 
-        }
+            foreach (var player in players.FindAll(p => p.Retired == false))
+            {
+                reportBuilder.AppendLine(player.ToString());
+            }
 
-        public  string Report()
-        {
-            var notRetired = Players.Where(p => p.Retired == false);
-
-            return $"Active players competing for Team {Name} from Group {Group}:" +
-                   Environment.NewLine +
-                   string.Join(Environment.NewLine, notRetired);
+            return reportBuilder.ToString().TrimEnd();
         }
     }
+
 }
 
