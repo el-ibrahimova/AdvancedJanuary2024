@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace FishingNet
 {
    
@@ -26,7 +27,7 @@ namespace FishingNet
         {
             if (fishCollection.Count < Capacity)
             {
-                if (string.IsNullOrWhiteSpace(fish.FishType) && fish.Length <= 0 && fish.Weight <= 0)
+                if (string.IsNullOrWhiteSpace(fish.FishType) || fish.Length <= 0 || fish.Weight <= 0)
                 {
                     return "Invalid fish.";
                 }
@@ -41,13 +42,24 @@ namespace FishingNet
             }
         }
 
-        public bool ReleaseFish(double weight) => fishCollection.Remove(Fish.FirstOrDefault(f => f.Weight == weight));
+        public bool ReleaseFish(double weight)
+        {
+            Fish currentFish = fishCollection.FirstOrDefault(f => f.Weight.Equals(weight));
 
-        public Fish GetFish(string fishType) => fishCollection.First(f => f.FishType == fishType);
+            if (currentFish != null)
+            {
+                fishCollection.Remove(currentFish);
+                return true;
+            }
+
+            return false;
+        }
+
+        public Fish GetFish(string fishType) => fishCollection.FirstOrDefault(f => f.FishType == fishType);
 
         public Fish GetBiggestFish()
         {
-            return fishCollection.OrderByDescending(f => f.Length).FirstOrDefault();
+            return fishCollection.OrderByDescending(f => f.Length).First();
         }
 
         public string Report()
