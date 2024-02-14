@@ -1,4 +1,6 @@
-﻿namespace _02.Help_A_Mole
+﻿using System;
+
+namespace _02.Help_A_Mole
 {
     internal class Program
     {
