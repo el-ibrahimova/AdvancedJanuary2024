@@ -1,4 +1,9 @@
-﻿namespace _01.BakeryShop
+﻿using System;
+using System.Numerics;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace _01.BakeryShop
 {
     internal class Program
     {
