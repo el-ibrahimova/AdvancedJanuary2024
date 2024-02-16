@@ -1,4 +1,8 @@
-﻿namespace _01.TilesMaster
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace _01.TilesMaster
 {
     internal class Program
     {
