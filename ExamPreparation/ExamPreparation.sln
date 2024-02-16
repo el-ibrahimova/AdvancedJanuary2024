@@ -51,8 +51,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.NavyBattle", "02.NavyBat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.Help-A-Mole", "02.Help-A-Mole\02.Help-A-Mole.csproj", "{B486514F-93E3-431D-92DA-5D68A0DE75AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Warship", "02.Warship\02.Warship.csproj", "{BBD5253B-CF48-4478-974D-33B386EE165B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -155,10 +153,6 @@ Global
 		{B486514F-93E3-431D-92DA-5D68A0DE75AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B486514F-93E3-431D-92DA-5D68A0DE75AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B486514F-93E3-431D-92DA-5D68A0DE75AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBD5253B-CF48-4478-974D-33B386EE165B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBD5253B-CF48-4478-974D-33B386EE165B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBD5253B-CF48-4478-974D-33B386EE165B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBD5253B-CF48-4478-974D-33B386EE165B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
