@@ -20,7 +20,7 @@ namespace Basketball
         public string Name { get; set; }
         public int OpenPositions { get; set; }
         public char Group { get; set; }
-        public IReadOnlyCollection<Player> Players => players.AsReadOnly();
+        public List<Player> Players => players;
 
 
 

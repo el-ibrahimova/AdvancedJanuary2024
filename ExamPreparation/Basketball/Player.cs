@@ -16,7 +16,7 @@ namespace Basketball
         public string Position { get; set; }
         public double Rating { get; set; }
         public int Games { get; set; }  
-        public bool Retired { get; set; }
+        public bool Retired { get; set; } = false;
 
         public override string ToString()
         {
